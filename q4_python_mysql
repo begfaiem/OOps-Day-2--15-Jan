@@ -1,19 +1,19 @@
-import mysql.connector
+import mysql.connector #This line imports the mysql.connector module, which is a Python driver for connecting to MySQL databases.
 
-class my_sql():
+class my_sql(): #a class named my_sql
 
-    def __init__(self, host, user, password):
+    def __init__(self, host, user, password): #The __init__ method is the constructor for the class. It initializes the instance variables host, user, and password with the values passed during the class instantiation. 
         self.host = host
         self.user = user
         self.password = password
         self.mydb = None
         self.cursor = None
 
-    def get_conn(self):
+    def get_conn(self): #The get_conn method establishes a connection to the MySQL database using the connection parameters (host, user, password) provided during the instance creation.
         self.mydb = mysql.connector.connect(host=self.host, user=self.user, password=self.password)
         return self.mydb
 
-    def get_cursor(self):
+    def get_cursor(self): #The get_cursor method creates a cursor object using the connected database (mydb).
         self.cursor = self.mydb.cursor()
         return self.cursor
 
